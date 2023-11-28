@@ -18,8 +18,8 @@ export default function Header() {
   ];
 
   const openRoute = (href) => {
-    // router.push(href);
-    console.log(router);
+    if (!href) return;
+    router.push(href);
   };
   return (
     <header className={classes.header}>
@@ -27,10 +27,14 @@ export default function Header() {
         <small>logo here</small>
       </div>
       <nav className={classes.navigation}>
-        <ul style={{ display: 'flex' }}>
+        <ul className="flex">
           {navItems.map((navItem, i) => (
-            <li style={{ marginInline: 6 }} key={i}>
-              <Link href={navItem.href || '/'}>{navItem.text}</Link>
+            <li
+              style={{ marginInline: 6, cursor: 'pointer' }}
+              key={i}
+              onClick={() => openRoute(navItem.href)}>
+              {navItem.text}
+              {/* <Link href={navItem.href || '/'}>{navItem.text}</Link> */}
             </li>
           ))}
         </ul>
