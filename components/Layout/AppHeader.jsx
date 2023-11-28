@@ -1,5 +1,4 @@
 import classes from './Header.module.css';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Header() {
@@ -34,7 +33,6 @@ export default function Header() {
               key={i}
               onClick={() => openRoute(navItem.href)}>
               {navItem.text}
-              {/* <Link href={navItem.href || '/'}>{navItem.text}</Link> */}
             </li>
           ))}
         </ul>
